@@ -8,7 +8,7 @@ provides=('rustowl')
 conflicts=('rustowl')
 arch=('x86_64')
 pkgdesc="Visualize Ownership and Lifetimes in Rust"
-license="MPL-2.0"
+license=('MPL-2.0')
 source=('git+https://github.com/cordx56/rustowl')
 md5sums=('SKIP')
 
