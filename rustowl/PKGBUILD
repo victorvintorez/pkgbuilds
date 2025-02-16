@@ -3,7 +3,7 @@
 pkgname=rustowl-git
 pkgver=0.1.1.r32.g1885c5c
 pkgrel=1
-makedepends=('rust', 'cargo', 'git')
+makedepends=('rust' 'cargo' 'git')
 provides=('rustowl')
 conflicts=('rustowl')
 arch=('x86_64')
