@@ -1,0 +1,27 @@
+# Maintainer: Victor Vintorez <victor@vintorez.dev>
+
+pkgname=rustowl-git
+pkgver=0.1.1.r32.g1885c5c
+pkgrel=1
+makedepends=('rust', 'cargo', 'git')
+provides=('rustowl')
+conflicts=('rustowl')
+arch=('x86_64')
+pkgdesc="Visualize Ownership and Lifetimes in Rust"
+license="MPL-2.0"
+source=('git+https://github.com/cordx56/rustowl')
+md5sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/rustowl/rustowl"
+    git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+    cd "$srcdir/rustowl/rustowl"
+    cargo build --release --locked
+}
+
+package() {
+    install -Dm 755 "$srcdir/rustowl/rustowl/target/release/owlsp" "$pkgdir/usr/bin/owlsp"
+}
