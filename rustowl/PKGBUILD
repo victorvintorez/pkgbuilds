@@ -3,7 +3,7 @@
 pkgname=cargo-rustowl-git
 pkgver=0.1.1.r32.g1885c5c
 pkgrel=1
-makedepends=('rustup' 'git')
+makedepends=('curl' 'git')
 provides=('rustowl')
 conflicts=('rustowl')
 arch=('x86_64')
@@ -18,8 +18,8 @@ pkgver() {
 }
 
 build() {
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
     cd "$srcdir/rustowl/rustowl"
-    rustup toolchain install
     cargo build --release --locked
 }
 
