@@ -1,6 +1,6 @@
 # Maintainer: Victor Vintorez <victor@vintorez.dev>
 
-pkgname=rustowl-git
+pkgname=cargo-rustowl-git
 pkgver=0.1.1.r32.g1885c5c
 pkgrel=1
 makedepends=('rust' 'cargo' 'git')
@@ -23,5 +23,7 @@ build() {
 }
 
 package() {
-    install -Dm 755 "$srcdir/rustowl/rustowl/target/release/owlsp" "$pkgdir/usr/bin/owlsp"
+    install -Dm 755 "$srcdir/rustowl/rustowl/target/release/cargo-owlsp" "$pkgdir/usr/bin/cargo-owlsp"
+    install -Dm 755 "$srcdir/rustowl/rustowl/target/release/cargo-owl" "$pkgdir/usr/bin/cargo-owl"
+    install -Dm 755 "$srcdir/rustowl/rustowl/target/release/rustowlc" "$pkgdir/usr/bin/rustowlc"
 }
